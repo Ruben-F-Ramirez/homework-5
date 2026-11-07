@@ -1,3 +1,13 @@
+clear, clc
+
+syms t n
+f = piecewise(t < 0, t, t > 0, 0);
+
+a0 = simplify((1/pi) * int(f, t, -pi, pi));
+an = simplify((1/pi) * int(f*cos(n*t), t, -pi, pi));
+bn = simplify((1/pi) * int(f*sin(n*t), t, -pi, pi));
+
+
 t = linspace(-pi, pi, 2001);
 f = zeros(size(t));
 f(t < 0) = t(t < 0);
